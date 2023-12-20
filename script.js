@@ -1,44 +1,53 @@
 var num1 = undefined;
 var num2 = undefined;
 var oprtr = undefined;
+var result = undefined;
+
 
 function add(num1, num2) {
-    var result = parseInt(num1) + parseInt(num2); 
-    result = result.toFixed(2);
-    console.log(result);
+    result = parseInt(num1) + parseInt(num2); 
+    result = parseFloat(result.toFixed(2));
     return result;
 
 };  
 function subtract(num1, num2){
-    result = Math.sign(num1-num2);
-    return result.toFixed(2);
+    result = parseInt(num1) - parseInt(num2); 
+    result = parseFloat(result.toFixed(2));
+    console.log(result);
+    return result;
 };
 
 function multiply(num1,num2){
-    result = num1*num2;
-    return result.toFixed(2);
+    result = parseInt(num1) * parseInt(num2); 
+    result = parseFloat(result.toFixed(2));
+    console.log(result);
+    return result;
 };
 
 function divide(num1,num2){
-    result = num1/num2;
-    return result.toFixed(2);
+    result = parseInt(num1)/parseInt(num2); 
+    result = parseFloat(result.toFixed(2));
+    console.log(result);
+    return result;
 };
 
 
 function operate(string){
     console.log(string);
     var equation = string.split("");
-    var oprtr = equation[1];
-    var num1 = equation[0];
-    var num2 = equation[2];
+    oprtr = equation[1];
+    num1 = equation[0];
+    num2 = equation[2];
     console.log(oprtr);
-    if (oprtr = "+") {
+    if (oprtr === "+") {
+        console.log("hello")
         return add(num1,num2);
-    } else if(oprtr ="-"){
-        subtract(num1,num2);
-    } else if(oprtr = "*"){
-        multiply(num1,num2);
-    } else if(oprtr ="/"){
-        divide(num1,num2);
+    } else if(oprtr ==="-"){
+        console.log("goodbye")
+        return subtract(num1,num2);
+    } else if(oprtr === "*"){
+        return multiply(num1,num2);
+    } else if(oprtr ==="/"){
+        return divide(num1,num2);
     }
 };
