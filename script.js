@@ -54,6 +54,7 @@ function operate(string){
 
 const numBut = document.querySelectorAll(".number");
 const display = document.querySelector("#display");
+const opBut = document.querySelectorAll(".operator")
 
 
 numBut.forEach(numBut => {
@@ -64,6 +65,12 @@ numBut.forEach(numBut => {
         console.log(e.target.id);
         display.textContent += e.target.id;
     })
+});
+
+opBut.forEach(opBut =>{
+    opBut.addEventListener("click",(e) =>{
+        display.textContent += e.target.id;
+    });
 });
 
 
