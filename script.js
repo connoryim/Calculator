@@ -13,38 +13,34 @@ function add(num1, num2) {
 function subtract(num1, num2){
     result = parseInt(num1) - parseInt(num2); 
     result = parseFloat(result.toFixed(2));
-    console.log(result);
     return result;
 };
 
 function multiply(num1,num2){
     result = parseInt(num1) * parseInt(num2); 
     result = parseFloat(result.toFixed(2));
-    console.log(result);
     return result;
 };
 
 function divide(num1,num2){
     result = parseInt(num1)/parseInt(num2); 
     result = parseFloat(result.toFixed(2));
-    console.log(result);
+    
     return result;
 };
 var equation = "";
 
 function operate(string){
-    console.log(string);
+    
     equation = string.split(/([+,\-,/,x])/g);
-    console.log(equation)
+    
     oprtr = equation[1];
     num1 = equation[0];
     num2 = equation[2];
-    console.log(oprtr);
+    
     if (oprtr == "+") {
-        console.log("hello")
         return add(num1,num2);
     } else if(oprtr =="-"){
-        console.log("goodbye")
         return subtract(num1,num2);
     } else if(oprtr == "x"){
         return multiply(num1,num2);
@@ -63,7 +59,6 @@ numBut.forEach(numBut => {
         if(display.textContent == "0"){
             display.textContent = "";
         }
-        console.log(e.target.id);
         display.textContent += e.target.id;
     })
 });
@@ -85,4 +80,12 @@ const equals = document.querySelector ("#equals");
 
 equals.addEventListener("click",() =>{
     display.textContent = operate(display.textContent);
+});
+
+const del = document.querySelector("#del");
+var delCon = ""
+del.addEventListener("click",()=>{
+    delCon = display.textContent;
+    delCon = delCon.slice(0,-1);
+    display.textContent =delCon;
 });
