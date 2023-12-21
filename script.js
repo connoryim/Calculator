@@ -30,24 +30,25 @@ function divide(num1,num2){
     console.log(result);
     return result;
 };
-
+var equation = "";
 
 function operate(string){
     console.log(string);
-    var equation = string.split("");
+    equation = string.split(/([+,\-,/,x])/g);
+    console.log(equation)
     oprtr = equation[1];
     num1 = equation[0];
     num2 = equation[2];
     console.log(oprtr);
-    if (oprtr === "+") {
+    if (oprtr == "+") {
         console.log("hello")
         return add(num1,num2);
-    } else if(oprtr ==="-"){
+    } else if(oprtr =="-"){
         console.log("goodbye")
         return subtract(num1,num2);
-    } else if(oprtr === "*"){
+    } else if(oprtr == "x"){
         return multiply(num1,num2);
-    } else if(oprtr ==="/"){
+    } else if(oprtr =="/"){
         return divide(num1,num2);
     }
 };
@@ -74,3 +75,14 @@ opBut.forEach(opBut =>{
 });
 
 
+const clear = document.querySelector("#clear")
+
+clear.addEventListener("click",() =>{
+    display.textContent = "0";
+});
+
+const equals = document.querySelector ("#equals");
+
+equals.addEventListener("click",() =>{
+    display.textContent = operate(display.textContent);
+});
