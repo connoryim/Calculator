@@ -53,9 +53,17 @@ function operate(string){
 };
 
 const numBut = document.querySelectorAll(".number");
+const display = document.querySelector("#display");
+
 
 numBut.forEach(numBut => {
     numBut.addEventListener("click",(e) =>{
-        console.log(e.target);
+        if(display.textContent == "0"){
+            display.textContent = "";
+        }
+        console.log(e.target.id);
+        display.textContent += e.target.id;
     })
 });
+
+
