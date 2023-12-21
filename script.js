@@ -51,3 +51,11 @@ function operate(string){
         return divide(num1,num2);
     }
 };
+
+const numBut = document.querySelectorAll(".number");
+
+numBut.forEach(numBut => {
+    numBut.addEventListener("click",(e) =>{
+        console.log(e.target);
+    })
+});
