@@ -30,23 +30,40 @@ function divide(num1,num2){
 };
 var equation = "";
 
+
+//Operate splits the equation in the display and performs calls a function depening on the operator
 function operate(string){
     
     equation = string.split(/([+,\-,/,x])/g);
-    
-    oprtr = equation[1];
-    num1 = equation[0];
-    num2 = equation[2];
-    
-    if (oprtr == "+") {
-        return add(num1,num2);
-    } else if(oprtr =="-"){
-        return subtract(num1,num2);
-    } else if(oprtr == "x"){
-        return multiply(num1,num2);
-    } else if(oprtr =="/"){
-        return divide(num1,num2);
+
+    for (let i = 0; i < equation.length; i++) {
+        if(equation[i] == "x"){
+            equation[i-1] = multiply(equation[i-1],equation[i+1]);
+            equation.splice(i,2);
+            console.log(equation);
+            i=0;
+        } else if(equation[i] == "/"){
+            equation[i-1] = divide(equation[i-1],equation[i+1]);
+            equation.splice(i,2);
+            console.log(equation);
+            i=0;
+        } 
     }
+
+    for (let i = 0; i < equation.length; i++){
+        if(equation[i] == "+"){
+            equation[i-1] = add(equation[i-1],equation[i+1]);
+            equation.splice(i,2);
+            console.log(equation);
+            i=0;
+        } else if(equation[i] == "-"){
+            equation[i-1] = subtract(equation[i-1],equation[i+1]);
+            equation.splice(i,2);
+            console.log(equation);
+            i=0;
+        } 
+    };
+    return equation[0];
 };
 
 const numBut = document.querySelectorAll(".number");
@@ -69,15 +86,12 @@ opBut.forEach(opBut =>{
     });
 });
 
-
 const clear = document.querySelector("#clear")
-
 clear.addEventListener("click",() =>{
     display.textContent = "0";
 });
 
 const equals = document.querySelector ("#equals");
-
 equals.addEventListener("click",() =>{
     display.textContent = operate(display.textContent);
 });
