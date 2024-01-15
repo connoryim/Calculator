@@ -1,7 +1,42 @@
+html{
+    background-color: rgb(255, 255, 255);
+    padding: 12px;
+}
 body{
     display: flex;
     justify-content: space-around;
 }
 #calculator{
-    background-color: aqua;
+    background-color: rgb(219, 224, 212);
+    padding: 10px;
+    border: 10px;
+    border-style: double;
+    border-color: blue;
+    height: 400px;
+    width: 400px;
+}
+#display{
+    text-align: end;
+    background-color: grey;
+    margin: 8px;
+    height: 60px;
+    font-size: 30px;
+    padding: 12px;
+}
+#buttons{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 300px;
+}
+
+.butRow{
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+}
+
+button{
+    flex: 1;
+    margin: 6px;
 }
